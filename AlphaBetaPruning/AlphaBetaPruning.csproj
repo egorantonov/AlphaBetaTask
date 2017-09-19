@@ -43,6 +43,7 @@
     <Compile Include="AlphaBetaPruning.cs" />
     <Compile Include="BaseField.cs" />
     <Compile Include="Cell.cs" />
+    <Compile Include="FieldScanner.cs" />
     <Compile Include="IHeuristics.cs" />
     <Compile Include="IField.cs" />
     <Compile Include="IRules.cs" />
