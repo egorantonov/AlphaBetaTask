@@ -10,8 +10,8 @@ namespace AlphaBetaPruning
     public class Move
     {
         #region fields
-        protected int row;
-        protected int column;        
+        protected internal int Row;
+        protected internal int Col;        
         #endregion
 
         public Move()
@@ -21,13 +21,13 @@ namespace AlphaBetaPruning
 
         public Move (int row, int column)
         {
-            this.row = row;
-            this.column = column;
+            Row = row;
+            Col = column;
         }
 
         #region methods
-        public int GetRow() => row;
-        public int GetColumn() => column;
+        public int GetRow() => Row;
+        public int GetColumn() => Col;
         #endregion
 
         #region overriding
@@ -36,7 +36,7 @@ namespace AlphaBetaPruning
             if (this == obj) return true;
             if (!(obj is Move)) return false;
             Move move = obj as Move;
-            return this.row == move.row && this.column == move.column;
+            return Row == move.Row && Col == move.Col;
         }
 
         public override int GetHashCode()
@@ -44,8 +44,9 @@ namespace AlphaBetaPruning
             return base.GetHashCode();
         }
 
-        public override string ToString() => string.Format("row {0} col {1}", row, column);
+        public override string ToString() => string.Format("row {0} col {1}", Row, Col);
         #endregion
 
     }
+
 }
