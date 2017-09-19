@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace AlphaBetaPruning
 {
-    
     public class Move
     {
         #region fields

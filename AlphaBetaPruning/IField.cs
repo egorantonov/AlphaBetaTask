@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AlphaBetaPruning
 {
-    interface IField
+    public interface IField
     {
         /// <summary>
         /// Get cell value

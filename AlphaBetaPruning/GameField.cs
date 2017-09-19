@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AlphaBetaPruning
 {
-    class GameField: BaseField
+    public class GameField: BaseField
     {
         private List<Move> moves;
         private Dictionary<Move, IEnumerable<Move>> prevMoves;

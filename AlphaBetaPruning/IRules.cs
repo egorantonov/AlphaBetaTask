@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AlphaBetaPruning
 {
-    interface IRules
+    public interface IRules
     {
         /// <summary>
         /// Returns pool of available moves

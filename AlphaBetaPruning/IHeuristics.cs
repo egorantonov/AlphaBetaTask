@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AlphaBetaPruning
 {
-    interface IHeuristics<T> where T: IField
+    public interface IHeuristics<T> where T: IField
     {
         /// <summary>
         /// Returns heuristic result of the field

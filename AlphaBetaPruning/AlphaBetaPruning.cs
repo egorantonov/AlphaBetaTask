@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AlphaBetaPruning
 {
-    class AlphaBetaPruning<T> where T:IField
+    public class AlphaBetaPruning<T> where T:IField
     {
         #region fields
         private int player;

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AlphaBetaPruning
 {
-    class Heuristics: IHeuristics<GameField>
+    public class Heuristics: IHeuristics<GameField>
     {
         private readonly int player;
 
@@ -25,6 +25,7 @@ namespace AlphaBetaPruning
         public int Score(GameField field, Move m, int player)
         {
             int res = 0;
+            //check winLine for our AI
             foreach (Line line in Line.Values())
             {
                 Score score = FieldScanner.ScoreLine(line, field.field, field.winLength, m,
@@ -40,7 +41,8 @@ namespace AlphaBetaPruning
                 }
                 res += G(score.inrow) + score.count;
             }
-            /* Оценка длины ряда для противника */
+
+            //check winLine for our opponent
             foreach (Line line in Line.Values())
             {
                 Score score = FieldScanner.ScoreLine(line, field.field, field.winLength, m,

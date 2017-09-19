@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace AlphaBetaPruning
 {
-    class BaseField: IField, IRules
+    public class BaseField: IField, IRules
     {
         protected internal int winLength;
         protected internal FieldState state = FieldState.none;
         private List<Cell> winLine;
 
-        public int[,] field;
+        public int[,] field; //always null? something missing?
 
         //players IDs
         public const int PLAYER_X = 1;
