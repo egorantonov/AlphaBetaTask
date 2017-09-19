@@ -45,6 +45,7 @@
     <Compile Include="Cell.cs" />
     <Compile Include="FieldScanner.cs" />
     <Compile Include="GameField.cs" />
+    <Compile Include="Heuristics.cs" />
     <Compile Include="IHeuristics.cs" />
     <Compile Include="IField.cs" />
     <Compile Include="IRules.cs" />
