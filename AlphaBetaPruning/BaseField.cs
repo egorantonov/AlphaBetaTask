@@ -8,8 +8,8 @@ namespace AlphaBetaPruning
 {
     class BaseField: IField, IRules
     {
-        private int winLength;
-        private State state = State.none;
+        protected internal int winLength;
+        protected internal FieldState state = FieldState.none;
         private List<Cell> winLine;
 
         public int[,] field;
@@ -21,7 +21,7 @@ namespace AlphaBetaPruning
         /// <summary>
         /// Game status: active, draw, status
         /// </summary>
-        public enum State
+        public enum FieldState
         {
             none, draw, win_x, win_o
         }
@@ -62,9 +62,9 @@ namespace AlphaBetaPruning
         /// <returns></returns>
         public int Get(int row, int column) => field[row,column];
 
-        public State GetState() => state;
+        public FieldState GetState() => state;
 
-        public void SetState(State state) => this.state = state;
+        public void SetState(FieldState state) => this.state = state;
 
         /// <summary>
         /// Check field state condition
@@ -78,11 +78,11 @@ namespace AlphaBetaPruning
                 int c = line[0].column;
                 if (field[r, c] == PLAYER_X)
                 {
-                    SetState(State.win_x);
+                    SetState(FieldState.win_x);
                 }
                 else if (field[r, c] == PLAYER_O)
                 {
-                    SetState(State.win_o);
+                    SetState(FieldState.win_o);
                 }
                 else
                 {
@@ -194,13 +194,13 @@ namespace AlphaBetaPruning
             return null;
         }
 
-        public void DoMove(Move m,int player)
+        public virtual void DoMove(Move m,int player)
         {
             if (field[m.Row, m.Col] != 0)
             {
                 //TODO: Exception?
             }
-            if (GetState() != State.none)
+            if (GetState() != FieldState.none)
             {
                 //TODO: Exception?
             }
@@ -208,14 +208,14 @@ namespace AlphaBetaPruning
             //reviewState();
         }
 
-        public void UndoMove(Move m, int player)
+        public virtual void UndoMove(Move m, int player)
         {
             field[m.Row, m.Col] = 0;
             winLine = null;
             //setState(State.none);
         }
 
-        public bool IsGameOver() => state != State.none;
+        public bool IsGameOver() => state != FieldState.none;
 
         /// <summary>
         /// Return current winner based on field state
@@ -225,8 +225,8 @@ namespace AlphaBetaPruning
         {
             switch (state)
             {
-                case State.win_x: return PLAYER_X;
-                case State.win_o: return PLAYER_O;
+                case FieldState.win_x: return PLAYER_X;
+                case FieldState.win_o: return PLAYER_O;
                 default: return 0;
             }
         }
@@ -243,7 +243,7 @@ namespace AlphaBetaPruning
         /// </summary>
         /// <param name="player"></param>
         /// <returns></returns>
-        public Move[] GetMoves(int player)
+        public virtual Move[] GetMoves(int player)
         {
             var availableMoves = new List<Move>();
             //TODO: Parallel
