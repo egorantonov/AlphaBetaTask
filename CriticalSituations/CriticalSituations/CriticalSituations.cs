@@ -72,6 +72,7 @@ namespace CriticalSituations
                     if (flag) return needToMove;
                     flag = true;
                     needToMove = new Move(col + news.x * i, row + news.y * i);
+                    is_critical(col + news.x, row + news.y);
                 }
                 winCount++;
             }
