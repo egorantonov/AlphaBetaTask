@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ApplicationView"
+        
         mc:Ignorable="d"
         Title="MainWindow" MinHeight="500" MinWidth="450"  MaxHeight="768" Width="768">
 
@@ -26,21 +27,22 @@
         </Grid.ColumnDefinitions>
         <Menu Height="25" VerticalAlignment="Top" Grid.Row="0" Background="#fff" >
             <MenuItem Header="Game">
-                <MenuItem Header="New Game" x:Name="NewGame" Click="NewGame_Click" ></MenuItem>                
+                <MenuItem Header="New Game" x:Name="NewGame" Click="NewGame_Click"  ></MenuItem>                
                 <Separator />
-                <MenuItem Header="Exit" Click="ExitMenuItem_Click"></MenuItem>
+                <MenuItem Header="Exit" Click="ExitMenuItem_Click" ></MenuItem>
             </MenuItem>
             <MenuItem Header="Edit" ></MenuItem>
             <MenuItem Header="View" ></MenuItem>
         </Menu>
-        <ListBox x:Name="BattleField" MaxHeight="400" MaxWidth="400" Background="#eee"
-                 ScrollViewer.HorizontalScrollBarVisibility="Disabled" Grid.Row="1">
-            <ListBox.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <WrapPanel />
-                </ItemsPanelTemplate>
-            </ListBox.ItemsPanel>
-        </ListBox>
-        <!--<Button Grid.Row="2">Restart</Button>-->
+
+        <UniformGrid x:Name="BattleField" MaxHeight="400" MaxWidth="400" Background="#aaa" 
+                     Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            
+        </UniformGrid>
+
+        <Button Grid.Row="2">Restart</Button>
+        
+         
+        
     </Grid>
 </Window>

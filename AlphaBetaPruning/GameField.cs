@@ -59,7 +59,8 @@ namespace AlphaBetaPruning
         public override void UndoMove(Move move, int player)
         {
             base.UndoMove(move, player);
-            prevMoves.TryGetValue(move, out IEnumerable<Move> mvs);
+            IEnumerable<Move> mvs;
+            prevMoves.TryGetValue(move, out  mvs);
             prevMoves.Remove(move);
             //TODO: there may be wrong ↓
             foreach (Move m in mvs)
